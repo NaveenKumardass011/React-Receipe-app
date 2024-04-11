@@ -1,0 +1,74 @@
+:root{
+    --colorid:rgb(25, 200, 34);
+    --boxShadow:rgb(193, 182, 182) ;
+    --heading: rgb(42, 32, 32);
+ }
+ .settings-div{
+    width: 100%;
+    height: auto; 
+    margin-top: 10px;
+ }
+ .settings-div h3{
+    color: var(--heading);
+ }
+  .theme{
+    display: inline-block;
+    border-radius: 5px;
+    border-left: 5px solid var(--colorid);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    box-shadow: 2px 2px 12px var(--boxShadow) ;
+  }
+  .color{
+    background-color:white;
+    margin-right: 10px;
+    border: 2px ;
+    height: 50px;
+    width: 50px;
+    border-radius: 2px;
+    display: inline-block;
+    cursor: pointer;
+  }
+.theme-white{
+    background-color:white;
+
+}
+.theme-black{
+    background-color: black;
+
+}
+.color-red{
+    background-color:  rgb(255, 6, 98);
+}
+.color-green{
+    background-color: rgb(25, 200, 34);
+}
+.color-yellow{
+    background-color:rgb(249, 147, 14);
+}
+.color-violet{
+    background-color: rgb(236, 18, 196);
+}
+.color-blue{
+    background-color:rgb(41, 104, 239);
+}
+.theme button{
+    border: none;
+    background-color: var(--colorid);
+    padding: 10px;
+    font-size: 1rem;
+    margin: 10px 10px 10px 0;
+    border-radius: 5px;
+    color: aliceblue;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+}
+.h3{
+    color:var(--heading);
+}
+
+
+

@@ -1,0 +1,108 @@
+:root{
+    --colorid:rgb(25, 200, 34);
+  }
+.Receipe-div{
+    height: auto;
+    width: 100%;
+    text-transform: capitalize;
+}
+.Receipe-List{
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    /* grid-template-columns: repeat(7,1fr)100px;
+    grid-template-rows: repeat(2,40px); */
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.Receipe-List li{
+    background-color: var(--colorid);
+    color: aliceblue;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transform: translateX(100%);
+    opacity: 0;
+    animation: list 0.3s ease-in-out forwards;   
+}
+.Receipe-List li:hover{
+    opacity: 0.8;
+    cursor: pointer;
+  }
+.Receipe-List li:nth-child(1){
+    animation-delay: 0.1s;
+}
+.Receipe-List li:nth-child(2){
+    animation-delay: 0.2s;
+}
+.Receipe-List li:nth-child(3){
+    animation-delay: 0.3s;
+}
+.Receipe-List li:nth-child(4){
+    animation-delay: 0.4s;
+}
+.Receipe-List li:nth-child(5){
+    animation-delay: 0.5s;
+}
+.Receipe-List li:nth-child(6){
+    animation-delay: 0.6s;
+}
+.Receipe-List li:nth-child(7){
+    animation-delay: 0.7s;
+}
+.Receipe-List li:nth-child(8){
+    animation-delay: 0.8s;
+}
+.Receipe-List li:nth-child(9){
+    animation-delay: 0.9s;
+}
+
+
+@keyframes list {
+from{
+    transform: translateX(100%);
+    opacity: 0;
+}
+to{
+    transform: translateX(0);
+    opacity: 1;
+}}
+
+.Receipe-List li:hover{
+    opacity: 0.8;
+}
+.Receipe-Search{
+    padding: 10px 0;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: end;
+}
+input[type='text']{
+    height: 30px;
+    width: 30%;
+    padding-left: 10px;
+    border-radius: 3px;
+    border: none;
+    font-size: 15px;
+
+}
+
+.Receipe-Items{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+
+}
+@media only screen and (max-width:700px){
+.Receipe-Items{
+    grid-template-columns: 1fr 1fr;
+}
+
+}
+@media only screen and (max-width:700px){
+    .Receipe-List{
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 10px;
+    }}
