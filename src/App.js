@@ -1,17 +1,24 @@
-import React, { useState} from 'react';
-import './App.css';
+import React, { useState,useEffect} from 'react';
+import './cssfile/App.css';
 import{Routes,Route,Link} from 'react-router-dom'
 import Home from './Home.js'
 import Receipe from './Receipe.js';
 import Settings from './Settings.js';
 
 
-
 function App() {
-  const [homeClik,setHomeClik]=useState("link")
+  const [homeClik,setHomeClik]=useState("link selected")
   const [receipeClik,setReceipeClik]=useState("link")
   const [settingsClik,setSettingClik]=useState("link")
   const [Search,setSearch]=useState("")
+
+  const animationspeed=(speed)=>{
+    document.documentElement.style.setProperty( '--animationspeed',speed)
+  }
+  
+  const changeFontSize=(size)=>{
+    document.documentElement.style.setProperty( '--textsize',size)
+  }
 
   const itemSearch=(e)=>{
   const searchvalue=e.target.value.toLowerCase()
@@ -116,6 +123,8 @@ function App() {
             <Route path='/Settings' element={<Settings
             bgColorChanger={bgColorChanger}
             themeChanger={themeChanger}
+            changeFontSize={changeFontSize}
+            animationspeed={animationspeed}
             />}></Route>
         </Routes>
       </div>

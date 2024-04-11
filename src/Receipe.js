@@ -1,5 +1,5 @@
 import React from 'react'
-import './Receipe.css';
+import './cssfile/Receipe.css';
 import ReceipeDiv from './ReceipeDiv'
 import Muttonbriyani from './images/Mutton briyani.jpg'
 import Juice1 from './images/Juice 1.jpg'
@@ -20,7 +20,7 @@ const Receipe = ({Search,setSearch,itemSearch,foodItem}) => {
             <li className='list-item' onClick={foodItem}>Burger</li>
             <li className='list-item' onClick={foodItem}>Cookies</li>
             <li className='list-item' onClick={foodItem}>Juice</li>
-            <li className='list-item' onClick={foodItem}>Briyani</li>
+            <li className='list-item' onClick={foodItem}>Biriyani</li>
             <li className='list-item' onClick={foodItem}>Salad</li>
             <li className='list-item' onClick={foodItem}>Ice Cream</li>
             <li className='list-item' onClick={foodItem}>Soup</li>

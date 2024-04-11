@@ -21,6 +21,9 @@
     width: 100%;
     box-shadow: 2px 2px 12px var(--boxShadow) ;
   }
+  .theme div{
+    margin: 10px 10px 10px 0;
+  }
   .color{
     background-color:white;
     margin-right: 10px;

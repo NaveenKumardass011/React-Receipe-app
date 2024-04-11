@@ -1,5 +1,5 @@
 import React,{props}from 'react'
-import './ReceipeDiv.css'
+import './cssfile/ReceipeDiv.css'
 const ReceipeDiv = (props) => {
   return (
     <div className='Receipe-component' data-item={props.name} id='receipe-item'>

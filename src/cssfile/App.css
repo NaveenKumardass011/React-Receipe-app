@@ -9,6 +9,11 @@
   --bgc:#eae7e7;
   --heading: rgb(42, 32, 32);
   --para:rgb(107, 107, 104);
+  --textsize:16px;
+  --animationspeed:1;
+}
+body{
+  font-size: var(--textsize);
 }
 h1,h2,h4{
   color:var(--heading);
@@ -75,7 +80,7 @@ h1,h2,h4{
   width: 0;
   background-color: var(--colorid);
   border-radius: 2px;
-  transition: all 0.5s ease;
+  transition: all calc(var(--animationspeed)*0.5s) ease;
 }
 .navbar-right .link:hover:after{
   margin: auto;
@@ -104,7 +109,7 @@ footer{
 }
 .website-details{
   margin-right: 0px;
-  padding: 10px 0 0 20px;
+  padding: 10px 0 0 0;
   
 }
 .website-details h3{
@@ -200,12 +205,12 @@ footer{
   width: 100%;
   object-fit: cover;
   object-position: center;
-  transition: all 0.5s ease;
+  transition: all calc(var(--animationspeed)*0.5s) ease;
 }
 .img-item{
   transform: scale(0);
   opacity: 0;
-  animation: hide 1s forwards;
+  animation: hide calc(var(--animationspeed)*1s) forwards;
 }
 .img-item:nth-child(1){
   animation-delay: 0.1s;
@@ -247,7 +252,7 @@ footer{
 }
 
 .img-container div img:hover{
-  transition: all 0.5s ease;
+  transition: all calc(var(--animationspeed)*0.5s) ease;
   transform: scale(1.5);
 }
 .improve-skill{
@@ -279,7 +284,7 @@ footer{
   margin-top: 20px;
   border-radius: 3px 0 0 3px;
   opacity: 0;
-  animation: improvepoint 1s ease-in-out forwards;
+  animation: improvepoint calc(var(--animationspeed)*1s) ease-in-out forwards;
 }
     
 .improve ul li:nth-child(1){

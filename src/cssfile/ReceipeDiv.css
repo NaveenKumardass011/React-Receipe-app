@@ -2,6 +2,7 @@
     --colorid:rgb(25, 200, 34);
     --para:rgb(107, 107, 104);
     --boxShadow:rgb(193, 182, 182) ;
+    --animationspeed:1;
   }
   .Receipe-component{
     height: 320px;
@@ -9,6 +10,14 @@
     margin-left: 0;
     box-shadow: 2px 2px 12px var(--boxShadow);
     border-radius: 3px;
+ 
+  }
+  .Receipe-component div img{
+    transition: all calc(var(--animationspeed)*0.5s) ease-in-out;
+  }
+  .Receipe-component img:hover{
+    transform: scale(1.2);
+    transition: all calc(var(--animationspeed)*0.5s) ease-in-out;
   }
   .img-div{
     overflow: hidden;

@@ -1,5 +1,6 @@
 :root{
     --colorid:rgb(25, 200, 34);
+    --animationspeed:1;
   }
 .Receipe-div{
     height: auto;
@@ -10,10 +11,8 @@
     list-style-type: none;
     width: 100%;
     display: flex;
-    /* grid-template-columns: repeat(7,1fr)100px;
-    grid-template-rows: repeat(2,40px); */
-    justify-content: space-between;
     margin: 20px 0;
+    flex-wrap: wrap;
 }
 
 .Receipe-List li{
@@ -21,14 +20,11 @@
     color: aliceblue;
     padding: 10px 15px;
     border-radius: 20px;
+    margin: 0 5px 8px 0;
     transform: translateX(100%);
     opacity: 0;
-    animation: list 0.3s ease-in-out forwards;   
+    animation: list calc(var(--animationspeed)*0.3s) ease-in-out forwards;   
 }
-.Receipe-List li:hover{
-    opacity: 0.8;
-    cursor: pointer;
-  }
 .Receipe-List li:nth-child(1){
     animation-delay: 0.1s;
 }
