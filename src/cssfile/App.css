@@ -5,18 +5,22 @@
  
 }
 :root{
-  --colorid:rgb(25, 200, 34);
-  --bgc:#eae7e7;
-  --heading: rgb(42, 32, 32);
-  --para:rgb(107, 107, 104);
-  --textsize:16px;
-  --animationspeed:1;
+ 
+   --background-color: #fff;
+  --background-light: #fff;
+  --primary-color: rgb(255, 0, 86);
+  --shadow-color: rgba(0,0,0,0.2);
+  --text-color: #0A0A0A;
+  --text-light: #575757;
+  --font-size: 16px;
+  --animation-speed: 1;
 }
 body{
   font-size: var(--textsize);
+  font-family: "Roboto", sans-serif;
 }
 h1,h2,h4{
-  color:var(--heading);
+  color:var(--text-color);
 }
 .container{
 
@@ -25,7 +29,7 @@ h1,h2,h4{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color:var(--bgc);
+  background-color:var(--background-light);
 
 }
 
@@ -34,6 +38,7 @@ h1,h2,h4{
   justify-content: center;
   border-bottom: 3px solid rgb(186, 180, 180);
   width: 100%;
+  background-color:var(--background-color);
 }
 .navbar{
   width: 50%;
@@ -45,11 +50,11 @@ h1,h2,h4{
 .heading{
   font-size: 1.5rem;
   font-weight: 800;
-  color:var(--colorid);
+  color:var(--primary-color);
   margin-bottom: 10px;
 }
 .heading span{
-  color:var(--heading);
+  color:var(--text-color);
 }
 .navbar-right{
  
@@ -59,7 +64,7 @@ h1,h2,h4{
 
 .navbar-right .link {
   display:inline-block;
-  color: var(--para);
+  color: var(--text-light);
   margin-left:15px ;
   letter-spacing: 0.5px;
   margin-top: 5px;
@@ -72,15 +77,44 @@ h1,h2,h4{
   text-decoration: none;
 
 }
+.mini-menu{
+  height: 50px;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  display: none;
+  cursor: pointer;
+}
+.mini-menu div{
+  height: 8px;
+  width: 100%;
+  background:var(--primary-color);
+  margin-top: 5px;
+}
+.mini-menu div:nth-child(1)
+{
+  border-radius: 12px;
+  width: 80%;
+}
+.mini-menu div:nth-child(2)
+{
+  border-radius: 12px;
+  width: 60%;
+}
+.mini-menu div:nth-child(3)
+{
+  border-radius: 12px;
+  width: 70%;
+}
 
 .navbar-right .link::after{
   content: " ";
   display: block;
   height: 4px;
   width: 0;
-  background-color: var(--colorid);
+  background-color: var(--primary-color);
   border-radius: 2px;
-  transition: all calc(var(--animationspeed)*0.5s) ease;
+  transition: all calc(var(--animation-speed)*0.5s) ease;
 }
 .navbar-right .link:hover:after{
   margin: auto;
@@ -90,7 +124,7 @@ h1,h2,h4{
   width: 50%;
 }
 .selected{
-  color: var(--colorid) !important;
+  color: var(--primary-color) !important;
 }
 
 footer{
@@ -105,6 +139,7 @@ footer{
   width: 50%;
   color: aliceblue;
   display: grid;
+  gap: 10px;
   grid-template-columns: 3fr 2fr 1fr;
 }
 .website-details{
@@ -149,11 +184,11 @@ footer{
   font-size: 1.8rem;
   padding: 5px 0 0 0;
   margin:0 0 10px 0px;
-  color:var(--heading);
+  color:var(--text-color);
 }
 
 .intro-contant p{
-  color: var(--para); 
+  color: var(--text-light); 
   font-weight: 500;
   margin-left: 0px;
   font-size: 1.1rem;
@@ -168,7 +203,7 @@ footer{
   color: aliceblue;
   font-size: 1.1rem;
   letter-spacing: 1px;
-  background-color: var(--colorid);
+  background-color: var(--primary-color);
 }
 .intro-contant button:hover{
   opacity: 0.8;
@@ -183,7 +218,7 @@ footer{
   color: aliceblue;
   font-size: 1.1rem;
   letter-spacing: 1px;
-  background-color: var(--colorid);
+  background-color: var(--primary-color);
 }
 .improve button:hover{
   opacity: 0.8;
@@ -205,12 +240,12 @@ footer{
   width: 100%;
   object-fit: cover;
   object-position: center;
-  transition: all calc(var(--animationspeed)*0.5s) ease;
+  transition: all calc(var(--animation-speed)*0.5s) ease;
 }
 .img-item{
   transform: scale(0);
   opacity: 0;
-  animation: hide calc(var(--animationspeed)*1s) forwards;
+  animation: hide calc(var(--animation-speed)*1s) forwards;
 }
 .img-item:nth-child(1){
   animation-delay: 0.1s;
@@ -252,7 +287,7 @@ footer{
 }
 
 .img-container div img:hover{
-  transition: all calc(var(--animationspeed)*0.5s) ease;
+  transition: all calc(var(--animation-speed)*0.5s) ease;
   transform: scale(1.5);
 }
 .improve-skill{
@@ -277,14 +312,14 @@ footer{
 }
 .improve ul li{
   list-style-type: none;
-  color: var(--para);
+  color: var(--text-color);
   margin-top: 10px;
-  border-left: 5px solid var(--colorid);
+  border-left: 5px solid var(--primary-color);
   padding-left: 10px;
   margin-top: 20px;
   border-radius: 3px 0 0 3px;
   opacity: 0;
-  animation: improvepoint calc(var(--animationspeed)*1s) ease-in-out forwards;
+  animation: improvepoint calc(var(--animation-speed)*1s) ease-in-out forwards;
 }
     
 .improve ul li:nth-child(1){
@@ -302,7 +337,41 @@ footer{
 .improve ul li:nth-child(5){
     animation-delay: 0.5s;
 }
+.navbar-right1{
+  position: absolute;
+  display: none;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  background-color: var(--background-light);
+  opacity: 1;
+  width: 50%;
+  height:100%;
+  font-weight: 700;
+  list-style-type: none;
+  box-shadow: 0 2px 12px var(--shadow-color);
+}
+.navbar-right1 .link1{
+  color: var(--text-light);
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+ display: block;
+ border-left: 5px solid var(--primary-color);
+ border-radius: 5px 0 0  5px;
+ padding: 10px 5px;
+ margin-bottom: 2px;
+ cursor: pointer;
+ list-style-type:none;
+ text-decoration: none;
+ transition: all calc(var(--animation-speed)*0.3s) ease;
+}
 
+.navbar-right1 .link1:hover{
+ background-color: var(--text-light);
+ color: var(--background-color);
+ transition: all calc(var(--animation-speed)*0.3s) ease;
+}
 
 @keyframes improvepoint {
 from{
@@ -397,5 +466,64 @@ to{
       }
     }
       
+    @media only screen and (max-width:600px){
+      .container-inside{
+          width: 95%;
+      }
+      .footer-div{
+          width: 95%;
+      }
+      .navbar{
+        width: 95%;
+        margin-left: 10px;
+      }
+    }
+       @media only screen and (max-width:700px){
+      .container-inside{
+          width:75%;
+      }
+      .footer-div{
+          width: 95%;
+      }
+      .navbar-right{
+         display: none;
+      }
+      .navbar-right1{
+        display: block;
+      }
+
+      .navbar{
+        width: 95%;
+        margin-left: 10px;
+      }
+      .mini-menu{
+        display: block;
+      }
+      .intro{
+        display:flex;
+        flex-direction: column;
+        gap: 20px;
+
+
+      }
+      .intro-contant{
+        width: 100%;
+      }
+      .img-container{
+        width:100%;
+      }
+      .improve-skill{
+        display: flex;
+        flex-direction: column;
+      }
+      .improve{
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      .img-contain{
+        display: none;
+      }
+
+    }
 
 

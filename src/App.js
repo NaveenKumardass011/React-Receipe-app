@@ -1,23 +1,83 @@
 import React, { useState,useEffect} from 'react';
 import './cssfile/App.css';
-import{Routes,Route,Link} from 'react-router-dom'
+import{Routes,Route,Link, useLocation} from 'react-router-dom'
 import Home from './Home.js'
 import Receipe from './Receipe.js';
 import Settings from './Settings.js';
 
 
+
 function App() {
-  const [homeClik,setHomeClik]=useState("link selected")
-  const [receipeClik,setReceipeClik]=useState("link")
-  const [settingsClik,setSettingClik]=useState("link")
   const [Search,setSearch]=useState("")
+  const [menu,setmenu]=useState(false)
+
+const location=useLocation()
+
+const [settings, setSettings] = useState({
+  "--background-color": "#fff",
+  "--background-light": "#fff",
+  "--primary-color": "rgb(255, 0, 86)",
+  "--shadow-color": "rgba(0,0,0,0.2)",
+  "--text-color": "#0A0A0A",
+  "--text-light": "#575757",
+  "--font-size": "16px",
+  "--animation-speed": 1
+})
+
+  useEffect(() => {
+    const root = document.documentElement
+    for(let key in settings){
+      root.style.setProperty(key, settings[key])
+    }
+}, [settings])
+
+
+
+
+
+const [theme,setTheme]=useState([{
+  "--background-color": "#fff",
+  "--background-light": "#fff",
+  "--shadow-color": "rgba(0,0,0,0.2)",
+  "--text-color": "#0A0A0A",
+  "--text-light": "#575757"
+},{
+  "--background-color": "rgb(29,29,29)",
+  "--background-light": "rgb(77,77,77)",
+  "--shadow-color": "rgba(0,0,0,0.2)",
+  "--text-color": "#ffffff",
+  "--text-light": "#eceaea"
+}])
+
+const primaryColor=[
+  'rgb(255, 0, 86)',
+  'rgb(33, 150, 243)',
+  'rgb(255, 193, 7)',
+  ' rgb(0, 200, 83)',
+  ' rgb(156, 39, 176)'
+]
+
+
+const themeChanger=(id)=>{
+ const _theme={...theme[id]}
+
+
+  for(let _key in _theme ){
+    document.documentElement.style.setProperty(_key,_theme[_key])
+  }}
+
+  const bgColorChanger=(id)=>{
+
+    document.documentElement.style.setProperty('--primary-color',primaryColor[id]) 
+}  
+
 
   const animationspeed=(speed)=>{
-    document.documentElement.style.setProperty( '--animationspeed',speed)
+    document.documentElement.style.setProperty('--animation-speed',speed) 
   }
   
   const changeFontSize=(size)=>{
-    document.documentElement.style.setProperty( '--textsize',size)
+    document.documentElement.style.setProperty('--font-size',size) 
   }
 
   const itemSearch=(e)=>{
@@ -36,7 +96,6 @@ function App() {
 
 
     const foodItem=(e)=>{
-        console.log( e.target.innerText.toLowerCase() =='all')
 
         const receipeList=document.querySelectorAll('#receipe-item')
         const arry=[...receipeList]
@@ -58,56 +117,34 @@ function App() {
           }
 
         })}
-
- const navBarClik=(e)=>{
-  console.log(e.target.innerText)
-  if(e.target.innerText ==='RECEIPE'){
-     setReceipeClik("link selected")
-     setHomeClik('link')
-     setSettingClik('link')
+  const menuBarClose=(value)=>{
+    menu=== value?setmenu(false):setmenu(true)
   }
-  else if(e.target.innerText==='HOME'){
-    setHomeClik("link selected")
-    setReceipeClik('link')
-    setSettingClik('link')
-  }
-  else if(e.target.innerText==='SETTINGS'){
-     setSettingClik("link selected")
-     setReceipeClik('link')
-     setHomeClik('link')
-  }
-   
- }
- const themeChanger=(color)=>{
-  document.documentElement.style.setProperty('--bgc',color) 
-  const boxShadowcolor= getComputedStyle( document.documentElement).getPropertyValue('--bgc')
-  if(boxShadowcolor !=='rgb(59, 56, 56)'){
-    document.documentElement.style.setProperty('--boxShadow','rgb(193, 182, 182)')
-    document.documentElement.style.setProperty('--heading','black')
-    document.documentElement.style.setProperty('--para','rgb(107, 107, 104)')
-
-  }
-  else{
-    document.documentElement.style.setProperty('--boxShadow','rgb(30, 29, 29)')
-    document.documentElement.style.setProperty('--heading','white')
-    document.documentElement.style.setProperty('--para','rgb(214, 199, 199)')
-  }
- }
- const bgColorChanger=(color)=>{
-      
-      document.documentElement.style.setProperty('--colorid',color) 
- }  
+  
+  
   return (
     <>
     <div className="container" >
         <div className='navbar-container'>
             <div className="navbar">
                   <div className="heading">F<span>oo</span>diesHub</div>
-                  <div className='navbar-right'> 
-                      <Link className={homeClik} to="/" onClick={navBarClik}>Home</Link>
-                      <Link className={receipeClik} to="/Receipe" onClick={navBarClik}>Receipe</Link>
-                      <Link className={settingsClik} to="/Settings"onClick={navBarClik}>Settings</Link>
+              <div className='navbar-right'> 
+                      <Link className={location.pathname==="/"?"link selected":"link"} to="/" >Home</Link>
+                      <Link className={location.pathname==="/Receipe"?"link selected":"link"} to="/Receipe" >Receipe</Link>
+                      <Link className={location.pathname==="/Settings"?"link selected":"link"} to="/Settings">Settings</Link>
+    
                   </div>
+                  {menu ===true && <div className='navbar-right1'> 
+                      <Link className={location.pathname==="/"?"link1 selected":"link1"} to="/" >Home</Link>
+                      <Link className={location.pathname==="/Receipe"?"link1 selected":"link1"} to="/Receipe" >Receipe</Link>
+                      <Link className={location.pathname==="/Settings"?"link1 selected":"link1"} to="/Settings">Settings</Link>
+    
+                  </div>}
+                  <div className='mini-menu' onClick={()=>menuBarClose(true)}>
+                        <div className="top"></div>
+                        <div className="middle"></div>
+                        <div className="bottom"></div>
+                     </div>
             </div>
         </div>
       <div className='container-inside'> 
@@ -125,6 +162,7 @@ function App() {
             themeChanger={themeChanger}
             changeFontSize={changeFontSize}
             animationspeed={animationspeed}
+            primaryColor={primaryColor}
             />}></Route>
         </Routes>
       </div>

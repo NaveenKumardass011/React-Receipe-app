@@ -1,6 +1,12 @@
 :root{
-    --colorid:rgb(25, 200, 34);
-    --animationspeed:1;
+    --background-color: #fff;
+    --background-light: #fff;
+    --primary-color: rgb(255, 0, 86);
+    --shadow-color: rgba(0,0,0,0.2);
+    --text-color: #0A0A0A;
+    --text-light: #575757;
+    --font-size: 16px;
+    --animation-speed: 1;
   }
 .Receipe-div{
     height: auto;
@@ -16,14 +22,14 @@
 }
 
 .Receipe-List li{
-    background-color: var(--colorid);
+    background-color: var(--primary-color);
     color: aliceblue;
     padding: 10px 15px;
     border-radius: 20px;
     margin: 0 5px 8px 0;
     transform: translateX(100%);
     opacity: 0;
-    animation: list calc(var(--animationspeed)*0.3s) ease-in-out forwards;   
+    animation: list calc(var(--animation-speed)*0.3s) ease-in-out forwards;   
 }
 .Receipe-List li:nth-child(1){
     animation-delay: 0.1s;
@@ -66,6 +72,7 @@ to{
 
 .Receipe-List li:hover{
     opacity: 0.8;
+    cursor: pointer;
 }
 .Receipe-Search{
     padding: 10px 0;
@@ -76,10 +83,14 @@ to{
 input[type='text']{
     height: 30px;
     width: 30%;
+    padding: 15px 0;
+    color: var(--text-color);
     padding-left: 10px;
     border-radius: 3px;
     border: none;
-    font-size: 15px;
+    box-shadow: 0 2px 12px var(--shadow-color);
+    font-size: 17px;
+    outline: none;
 
 }
 

@@ -1,23 +1,30 @@
 :root{
-    --colorid:rgb(25, 200, 34);
-    --para:rgb(107, 107, 104);
-    --boxShadow:rgb(193, 182, 182) ;
-    --animationspeed:1;
+    --background-color: #fff;
+    --background-light: #fff;
+    --primary-color: rgb(255, 0, 86);
+    --shadow-color: rgba(0,0,0,0.2);
+    --text-color: #0A0A0A;
+    --text-light: #575757;
+    --font-size: 16px;
+    --animation-speed: 1;
+  }
+  body{
+    font-size: var(--font-size);
   }
   .Receipe-component{
     height: 320px;
     width: 100%;
     margin-left: 0;
-    box-shadow: 2px 2px 12px var(--boxShadow);
+    box-shadow: 0px 2px 12px var(--shadow-color);
     border-radius: 3px;
  
   }
   .Receipe-component div img{
-    transition: all calc(var(--animationspeed)*0.5s) ease-in-out;
+    transition: all calc(var(--animation-speed)*0.5s) ease-in-out;
   }
   .Receipe-component img:hover{
     transform: scale(1.2);
-    transition: all calc(var(--animationspeed)*0.5s) ease-in-out;
+    transition: all calc(var(--animation-speed)*0.5s) ease-in-out;
   }
   .img-div{
     overflow: hidden;
@@ -44,7 +51,7 @@
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    background-color: aliceblue;
+    background-color: var(--background-light);
     padding: 3px;
     outline: 1.5px solid rgb(202, 207, 202);
     top: -25px;
@@ -64,12 +71,12 @@
     width: 100%;
     height: 40%;
     overflow: hidden;
-    color: var(--para);
+    color: var(--text-light);
     padding: 6px;
   } 
   .profile-details a{
     text-decoration: none;
-    color: var(--colorid);
+    color: var(--primary-color);
     font-weight: 700;
     margin:10px 6px;
     width: 100%;

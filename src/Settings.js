@@ -1,25 +1,24 @@
-import React,{props} from 'react'
+import React from 'react'
 import './cssfile/Settings.css'
 
-const Settings = ({themeChanger,bgColorChanger,changeFontSize,animationspeed}) => {
+const Settings = ({themeChanger,bgColorChanger,changeFontSize,animationspeed,primaryColor}) => {
     
   return (
     <div className='settings-div'>
         <div className='Preferred-Theme'>
             <h3>Preferred Theme</h3>
             <div className='theme'>
-                <div onClick={()=>themeChanger('#eae7e7')}className='color theme-white'></div>
-                <div onClick={()=>props.themeChanger('rgb(59, 56, 56)')} className='color theme-black'></div>
+                <div onClick={()=>themeChanger(0)}className='color theme-white'></div>
+                <div onClick={()=>themeChanger(1)} className='color theme-black'></div>
             </div>
         </div>
         <div className='Primary-Color'>
-            <h3>Primary Color</h3>
+            <h3>Primary Color</h3> 
             <div className='theme'>
-                <div onClick={()=>bgColorChanger('rgb(255, 6, 98)')} className='color color-red'></div>
-                <div onClick={()=>bgColorChanger('rgb(41, 104, 239)')} className='color color-blue'></div>
-                <div onClick={()=>bgColorChanger('rgb(249, 147, 14)')} className='color color-yellow'></div>
-                <div onClick={()=>bgColorChanger('rgb(25, 200, 34)')} className='color color-green'></div>
-                <div onClick={()=>bgColorChanger('rgb(236, 18, 196)')} className='color color-violet'></div>
+             {primaryColor.map((color,index)=>{
+
+                 return <div key={index} className="color" onClick={()=>bgColorChanger(index)} style={{backgroundColor:color}}></div>
+             })}
             </div>
         </div>
         <div className='Font-Size'>
