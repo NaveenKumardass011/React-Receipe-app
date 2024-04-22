@@ -77,39 +77,79 @@ to{
 .Receipe-Search{
     padding: 10px 0;
     margin-bottom: 10px;
+    width: 100%;
     display: flex;
     justify-content: end;
 }
 input[type='text']{
-    height: 30px;
-    width: 30%;
+    height: 35px;
+    width: 100%;
     padding: 15px 0;
     color: var(--text-color);
     padding-left: 10px;
     border-radius: 3px;
+    padding-inline-end: 35px;
     border: none;
     box-shadow: 0 2px 12px var(--shadow-color);
     font-size: 17px;
     outline: none;
 
 }
+.result-div{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.result-div p:nth-child(1){
+    font-size: 2rem;
+    text-align: center;
+    color: var(--text-light);
+}
+.result-div p:nth-child(2){
+    margin-top: 10px;
+    color: var(--text-light);
+}
 
 .Receipe-Items{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap: 20px;
     margin: 20px 0;
 
 }
-@media only screen and (max-width:700px){
-.Receipe-Items{
-    grid-template-columns: 1fr 1fr;
+.Search-bar{
+    position: relative;
+    width: 40%;
+}
+.Search-icon{
+    position:absolute;
+    color: var(--primary-color);
+    bottom: 0;
+    right: 12px;
+    font-size: 1.2rem;
+    top: 8px;
 }
 
-}
+
+
 @media only screen and (max-width:700px){
     .Receipe-List{
       display: flex;
       flex-wrap: wrap;
       margin-left: 10px;
-    }}
+    }
+    .Receipe-Search{
+      width: 100%;  
+    }
+    .Search-bar{
+        width: 100%;
+    }
+    input[type='text']{
+        width: 100%;
+        height: 40px;
+        border-radius: 10px;
+    }
+}

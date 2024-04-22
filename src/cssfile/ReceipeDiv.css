@@ -19,18 +19,15 @@
     border-radius: 3px;
  
   }
+
   .Receipe-component div img{
-    transition: all calc(var(--animation-speed)*0.5s) ease-in-out;
-  }
-  .Receipe-component img:hover{
-    transform: scale(1.2);
     transition: all calc(var(--animation-speed)*0.5s) ease-in-out;
   }
   .img-div{
     overflow: hidden;
     height: 45%;
   }
-  .img-div img{
+  .img-div .img-items{
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -46,7 +43,7 @@
     height: 30px;
     width: 100%;
   }
-  .profile-img img{
+  .profile-img .img-chef{
     position: absolute;
     height: 50px;
     width: 50px;

@@ -1,16 +1,12 @@
 import React from 'react'
-import Cake1 from './Ice cream images/Cake 1.jpeg'
-import Cake2 from './Ice cream images/Cake 2.jpeg'
-import Cake3 from './Ice cream images/Cake 3.jpeg'
 import Cake4 from './Ice cream images/Cake 4.jpeg'
-import Pizza1 from './Ice cream images/Pizza 1.jpeg'
 import Pizza2 from './Ice cream images/Pizza 2.jpeg'
-import Pizza3 from './Ice cream images/Pizza 3.jpeg'
-import Pizza4 from './Ice cream images/Pizza 4.jpeg'
 import Pizza5 from './Ice cream images/Pizza 5.jpeg'
 import Icecream from './Ice cream images/Ice cream 1.jpeg'
 
-const Home = () => {
+
+
+const Home = ({ Muttonbriyani, Juice1, Juice2,Burger1,Briyani1}) => {
   return (
     <>
         <div className='intro'>
@@ -24,20 +20,21 @@ const Home = () => {
               <button>EXPLORE NOW</button>
             </div>
             <div className='img-container'>
-              <div className='img-item'><img src={Cake1} alt='img1'/></div>
-              <div className='img-item'><img src={Cake2} alt='img2' /></div>
-              <div className='img-item'><img src={Cake3} alt='img3'/></div>
+              
+              <div className='img-item'><img src={Muttonbriyani} alt='img1'/></div>
+              <div className='img-item'><img src={Juice1} alt='img2' /></div>
+              <div className='img-item'><img src={Burger1} alt='img3'/></div>
               <div className='img-item'><img src={Cake4} alt='img4'/></div>
-              <div className='img-item'><img src={Pizza1} alt='img5' /></div>
-              <div className='img-item'><img src={Pizza2} alt='img6'/></div>
-              <div className='img-item'><img src={Pizza3}alt='img7' /></div>
+              <div className='img-item'><img src={Pizza2} alt='img5' /></div>
+              <div className='img-item'><img src={Briyani1} alt='img6'/></div>
+              <div className='img-item'><img src={Juice2}alt='img7' /></div>
               <div className='img-item'><img src={Pizza5} alt='img8'/></div>
-              <div className='img-item'><img src={Pizza4} alt='img9'/></div>
+              <div className='img-item'><img src={Icecream} alt='img9'/></div>
             </div>
         </div>
         <div className="improve-skill">
              <div className='img-contain'>
-               <img src={Icecream} />
+               <img className='big-img' src={Burger1} alt='img45' />
              </div>
               <div className='improve'>
                  <h1>Improve Your Culinary Skills</h1>

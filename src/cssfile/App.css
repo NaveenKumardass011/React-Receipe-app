@@ -18,6 +18,22 @@
 body{
   font-size: var(--textsize);
   font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+body::-webkit-scrollbar{
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track{
+  background-color: var(--text-light);
+}
+body::-webkit-scrollbar-thumb{
+  background-color: var(--primary-color);
+  border-radius: 5px;
+}
+body::-webkit-scrollbar-thumb:hover{
+  width: 15px;
+  cursor: pointer;
 }
 h1,h2,h4{
   color:var(--text-color);
@@ -33,95 +49,19 @@ h1,h2,h4{
 
 }
 
-.navbar-container{
-  display: flex;
-  justify-content: center;
-  border-bottom: 3px solid rgb(186, 180, 180);
-  width: 100%;
-  background-color:var(--background-color);
+footer h3{
+  text-decoration: underline;
 }
-.navbar{
-  width: 50%;
-  margin: 1rem 0 0 0;
-  display: flex;
-  justify-content: space-between;
- 
-}
-.heading{
-  font-size: 1.5rem;
-  font-weight: 800;
-  color:var(--primary-color);
-  margin-bottom: 10px;
-}
-.heading span{
-  color:var(--text-color);
-}
-.navbar-right{
- 
-  font-weight: 700;
-  list-style-type: none;
+.social-icons{
+  height: 14px;
+  width: 18px;
+  margin-right: 2px;
+  margin-top: 2px;
 }
 
-.navbar-right .link {
-  display:inline-block;
-  color: var(--text-light);
-  margin-left:15px ;
-  letter-spacing: 0.5px;
-  margin-top: 5px;
-  text-transform: uppercase;
-
-}
-.navbar-right .link{
-  cursor: pointer;
-  list-style-type:none;
-  text-decoration: none;
-
-}
-.mini-menu{
-  height: 50px;
-  width: 50px;
-  display: flex;
-  flex-direction: column;
-  display: none;
-  cursor: pointer;
-}
-.mini-menu div{
-  height: 8px;
-  width: 100%;
-  background:var(--primary-color);
-  margin-top: 5px;
-}
-.mini-menu div:nth-child(1)
-{
-  border-radius: 12px;
-  width: 80%;
-}
-.mini-menu div:nth-child(2)
-{
-  border-radius: 12px;
-  width: 60%;
-}
-.mini-menu div:nth-child(3)
-{
-  border-radius: 12px;
-  width: 70%;
-}
-
-.navbar-right .link::after{
-  content: " ";
-  display: block;
-  height: 4px;
-  width: 0;
-  background-color: var(--primary-color);
-  border-radius: 2px;
-  transition: all calc(var(--animation-speed)*0.5s) ease;
-}
-.navbar-right .link:hover:after{
-  margin: auto;
-  width: 100%;
-}
 .container-inside{
   width: 50%;
+  margin-top: 60px;
 }
 .selected{
   color: var(--primary-color) !important;
@@ -133,6 +73,8 @@ footer{
   display: flex;
   justify-content: center;
   overflow-x: none;
+  z-index: 12;
+ 
   
 }
 .footer-div{
@@ -288,7 +230,7 @@ footer{
 
 .img-container div img:hover{
   transition: all calc(var(--animation-speed)*0.5s) ease;
-  transform: scale(1.5);
+  transform: scale(1.1);
 }
 .improve-skill{
   width: 100%;
@@ -302,9 +244,11 @@ footer{
   height: 350px;
   margin-bottom: 20px;
 }
-.img-contain img{
+.big-img{
+  width: 100%;
   object-fit: cover;
   object-position: center;
+  transform: scale(1.4);
 }
 .improve{
   width: 50%;
@@ -336,41 +280,6 @@ footer{
 }
 .improve ul li:nth-child(5){
     animation-delay: 0.5s;
-}
-.navbar-right1{
-  position: absolute;
-  display: none;
-  z-index: 5;
-  left: 0;
-  top: 0;
-  background-color: var(--background-light);
-  opacity: 1;
-  width: 50%;
-  height:100%;
-  font-weight: 700;
-  list-style-type: none;
-  box-shadow: 0 2px 12px var(--shadow-color);
-}
-.navbar-right1 .link1{
-  color: var(--text-light);
-  margin-top: 10px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
- display: block;
- border-left: 5px solid var(--primary-color);
- border-radius: 5px 0 0  5px;
- padding: 10px 5px;
- margin-bottom: 2px;
- cursor: pointer;
- list-style-type:none;
- text-decoration: none;
- transition: all calc(var(--animation-speed)*0.3s) ease;
-}
-
-.navbar-right1 .link1:hover{
- background-color: var(--text-light);
- color: var(--background-color);
- transition: all calc(var(--animation-speed)*0.3s) ease;
 }
 
 @keyframes improvepoint {

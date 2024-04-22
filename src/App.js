@@ -1,17 +1,35 @@
 import React, { useState,useEffect} from 'react';
 import './cssfile/App.css';
-import{Routes,Route,Link, useLocation} from 'react-router-dom'
+import{Routes,Route} from 'react-router-dom'
 import Home from './Home.js'
 import Receipe from './Receipe.js';
 import Settings from './Settings.js';
+import { FaFacebookSquare, FaWhatsappSquare} from "react-icons/fa";
+import { FaSquareInstagram } from "react-icons/fa6";
+import Muttonbriyani from './images/Mutton briyani.jpg'
+import Juice1 from './images/Juice 1.jpg'
+import Juice2 from './images/juice 2.jpg'
+import Briyani1 from './images/Briyani 1.jpeg'
+import Burger1 from './images/Burger 1.webp'
+import Chefs1 from './images/chefs 1.jpg'
+import Chefs2 from './images/chefs 2.jpg'
+import Chefs3 from './images/chefs 3.jpg'
+import Pizza4 from './Ice cream images/Pizza 4.jpeg'
+import Navbar from './Navbar.js';
 
 
 
 function App() {
   const [Search,setSearch]=useState("")
   const [menu,setmenu]=useState(false)
+  const [menuActive,setMenuActive]=useState("mini-menu")
+  const [menuBar,setBar]=useState("bar")
+  const[animationChange,setAnimationchange]=useState(" ")
+  const[receipeFilter,setReceipeFilter]=useState([])
+  const[result,setresult]=useState(false)
+  const[title,setTitle]=useState()
+  
 
-const location=useLocation()
 
 const [settings, setSettings] = useState({
   "--background-color": "#fff",
@@ -31,6 +49,52 @@ const [settings, setSettings] = useState({
     }
 }, [settings])
 
+
+const receipes=
+  [
+   {
+    'id':1,
+    'img':Juice1,
+    'name':"Mix Juice",
+    'chef':Chefs1
+   },
+   {
+    'id':2,
+    'img':Juice2,
+    'name':"Juice",
+    'chef':Chefs2
+   },
+   {
+    'id':3,
+    'img':Briyani1,
+    'name':"Biriyani",
+    'chef':Chefs3
+   },
+   {
+    'id':4,
+    'img': Burger1,
+    'name':"Burger",
+    'chef':Chefs1
+   },
+   {
+    'id':5,
+    'img':Muttonbriyani,
+    'name':"Mutton Biriyani",
+    'chef':Chefs2
+   },
+   {
+    'id':6,
+    'img':Pizza4,
+    'name':"Pizza",
+    'chef':Chefs3
+   }
+  ]
+  useEffect(() => {
+    setReceipeFilter(receipes)
+    console.log('hi')
+   
+ }, [])
+ 
 
 
 
@@ -66,96 +130,95 @@ const themeChanger=(id)=>{
     document.documentElement.style.setProperty(_key,_theme[_key])
   }}
 
-  const bgColorChanger=(id)=>{
+const bgColorChanger=(id)=>{
 
     document.documentElement.style.setProperty('--primary-color',primaryColor[id]) 
 }  
 
 
-  const animationspeed=(speed)=>{
+const animationspeed=(speed)=>{
     document.documentElement.style.setProperty('--animation-speed',speed) 
   }
   
-  const changeFontSize=(size)=>{
+const changeFontSize=(size)=>{
     document.documentElement.style.setProperty('--font-size',size) 
   }
 
-  const itemSearch=(e)=>{
+const itemSearch=(e)=>{
   const searchvalue=e.target.value.toLowerCase()
         setSearch(searchvalue)
-  const receipeList=document.querySelectorAll('#receipe-item')
-  const arry=[...receipeList]
-     arry.map((item)=>{
-    const arry2= item.dataset.item.toLowerCase()
-    if(arry2.includes(searchvalue)){
-      item.style.display='block'
-    }
-    else{
-      item.style.display='none'
-    }})}
+       const val= receipes.filter((item)=>{
+          return   item.name.toLowerCase().includes(searchvalue)
+        })
+        setReceipeFilter(val)
+        if(val.length===0){
+          setresult(true)
+        }
+        else{
+          setresult(false)
+        }
+}
 
 
-    const foodItem=(e)=>{
-
-        const receipeList=document.querySelectorAll('#receipe-item')
-        const arry=[...receipeList]
-           arry.map((item)=>{
-          const arry2= item.dataset.item.toLowerCase()
-          e.target.innerText.toLowerCase() =='all'?item.style.display='block':item.style.display='none';
-
-          if(e.target.innerText.toLowerCase() !=='all'){
-            if(arry2.includes(e.target.innerText.toLowerCase())){
-              item.style.display='block'
-            }
-            else{
-              item.style.display='none'
-            }
-
-          }
-          else{
-            item.style.display='block'
-          }
-
-        })}
+const foodItem=(e)=>{
+     setSearch("")
+      if(e.target.innerText.toLowerCase()=='all'){
+          setReceipeFilter(receipes)
+          setresult(false)
+          setTitle(e.target.innerText)
+      }
+      else{
+        const val=receipes.filter((item)=>{
+          return   item.name.toLowerCase().includes(e.target.innerText.toLowerCase())
+         })
+         setReceipeFilter(val)
+         if(val.length===0){
+          setresult(true)
+          setTitle(e.target.innerText)
+        }
+        else{
+          setresult(false)
+        }
+      }
+      }
   const menuBarClose=(value)=>{
-    menu=== value?setmenu(false):setmenu(true)
+    menu=== value?setTimeout(setmenu(false),1000) :setmenu(true)
+    menu=== value?setMenuActive("mini-menu"):setMenuActive("mini-menu active")
+    menu=== value?setBar("bar"):setBar("bar active-menu")
+    menu=== value?setAnimationchange("menuclose"):setAnimationchange("menuopen")
   }
   
+
   
   return (
     <>
+
     <div className="container" >
-        <div className='navbar-container'>
-            <div className="navbar">
-                  <div className="heading">F<span>oo</span>diesHub</div>
-              <div className='navbar-right'> 
-                      <Link className={location.pathname==="/"?"link selected":"link"} to="/" >Home</Link>
-                      <Link className={location.pathname==="/Receipe"?"link selected":"link"} to="/Receipe" >Receipe</Link>
-                      <Link className={location.pathname==="/Settings"?"link selected":"link"} to="/Settings">Settings</Link>
-    
-                  </div>
-                  {menu ===true && <div className='navbar-right1'> 
-                      <Link className={location.pathname==="/"?"link1 selected":"link1"} to="/" >Home</Link>
-                      <Link className={location.pathname==="/Receipe"?"link1 selected":"link1"} to="/Receipe" >Receipe</Link>
-                      <Link className={location.pathname==="/Settings"?"link1 selected":"link1"} to="/Settings">Settings</Link>
-    
-                  </div>}
-                  <div className='mini-menu' onClick={()=>menuBarClose(true)}>
-                        <div className="top"></div>
-                        <div className="middle"></div>
-                        <div className="bottom"></div>
-                     </div>
-            </div>
-        </div>
+         <Navbar
+         menuBarClose={menuBarClose}
+         menuActive={menuActive} 
+         menuBar={menuBar}
+         menu={menu}
+         animationChange={animationChange}
+         />
       <div className='container-inside'> 
         <Routes>
-            <Route path='/' element={<Home/>}></Route>
+            <Route path='/' element={<Home
+                       Muttonbriyani={Muttonbriyani}
+                       Juice1={Juice1}
+                       Juice2={Juice2}
+                       Burger1={Burger1}
+                       Briyani1={Briyani1}
+                       />}></Route>
             <Route path='/Receipe'element={
                     <Receipe 
                        foodItem={foodItem}
                        Search={Search}
-                       setSearch={setSearch}  
-                       itemSearch={itemSearch}/>}>
+                       receipeFilter={receipeFilter}
+                       itemSearch={itemSearch}
+                       result={result}
+                       title={title}
+                       />}>
             </Route>
             <Route path='/Settings' element={<Settings
             bgColorChanger={bgColorChanger}
@@ -165,6 +228,7 @@ const themeChanger=(id)=>{
             primaryColor={primaryColor}
             />}></Route>
         </Routes>
+      
       </div>
     </div>
     <footer>
@@ -187,9 +251,9 @@ const themeChanger=(id)=>{
       </div>
       <div className='socials-details'>
         <h3>Socials</h3>
-        <li>Facebook</li>
-        <li>Instragram</li>
-        <li>Whatsapp</li>
+        <li><FaFacebookSquare className='social-icons'/><span className='social-name'>Facebook</span></li>
+        <li><FaSquareInstagram className='social-icons'/><span className='social-name'>Instragram</span></li>
+        <li>< FaWhatsappSquare className='social-icons'/><span className='social-name'>Whatsapp</span></li>
       </div>
       </div>
     </footer>
